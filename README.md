@@ -1,4 +1,4 @@
-# photo_expression_app
+# photo_expression
 
 
 
