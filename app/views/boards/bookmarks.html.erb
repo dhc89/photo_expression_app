@@ -1,0 +1,25 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム（ブックマークついている掲示板に絞って検索をかける） -->
+      <%= render 'search', q: @q, url: bookmarks_boards_path %>
+    </div>
+  </div>
+  <!-- 掲示板一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">      
+        <% if @bookmark_boards.present? %>
+          <%= render @bookmark_boards %>
+          <!--% @bookmark_boards.each do |bookmark_board| %-->
+            <!--%= button_to '笑顔', toggle_smile_bookmark_path(bookmark_board), method: :post %-->
+          <!--% end %-->          
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
+      </div>
+      <%= paginate @bookmark_boards %>
+    </div>
+  </div>
+</div>

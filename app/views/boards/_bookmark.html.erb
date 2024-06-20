@@ -1,0 +1,7 @@
+<%= link_to bookmarks_path(board_id: board.id), id: "bookmark-button-for-board-#{board.id}", data: { turbo_method: :post } do %>
+<!--<i class="bi bi-star"></i>-->
+  <%= image_tag "smile", width: "25", height: "25" %>
+  <%= image_tag "anger", width: "25", height: "25" %>
+  <%= image_tag "sad", width: "25", height: "25" %>
+<% end %>
+<% #ブックマークしていない際に表示するファイル%>

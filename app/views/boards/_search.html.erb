@@ -1,0 +1,22 @@
+<% #= search_form_for @q, url: url do |f| %>
+   <% #= f.search_field :title_or_body_cont, class: 'form-control', placeholder: '検索ワード' %>
+   <% #= f.submit '検索', class: 'btn btn-primary' %>
+<% #end %>
+
+<%= search_form_for q, url: url do |f| %>
+   <div class="input-group mb-3">
+     <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('defaults.search_word') %>
+     <div class="input-group-append">
+       <%= f.submit class: 'btn btn-primary' %>
+     </div>
+   </div>
+ <% end %>
+
+   <% #search_form_forというransackが提供するフォームヘルパーを使ってフォームを作成。 
+    #@qはcontroller.rbに記載
+    #url: urlと記入することで、どこからでも呼び出せる汎用性の高いパーシャルファイルになる。
+    #*_cont	contains value	部分一致（内容を含む）という意味
+    # input-group-appendとは、Bootstrapのクラスの一つ.
+    # Bootstrapのinput-groupコンポーネントを使うときに、入力フィールドの後ろに追加の要素（例えばボタンやテキスト）を配置するために使うクラスダゾ。
+    #これを使うことで、入力フィールドと追加の要素が一体となって表示されるナ。(検索フォームと検索ボタンが２行に分かれて表示されていたのを解決したぞ)
+    # ja.ymlファイルでdefauts.search_wordを定義づけている%>

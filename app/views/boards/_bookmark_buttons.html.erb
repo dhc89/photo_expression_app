@@ -1,0 +1,14 @@
+<div class='ms-auto'>
+  <% if current_user.bookmark?(board) %>
+    <% if Bookmark.where(angry: true).exists? %>
+      <%= render 'unbookmark_angry', { board: board } %>
+    <% elsif Bookmark.where(sad: true).exists? %>
+      <%= render 'unbookmark_sad', { board: board } %>
+    <% else %>
+      <%= render 'unbookmark', { board: board } %>
+    <% end %>
+  <% else %>
+    <%= render 'bookmark', { board: board } %>
+  <% end %>
+</div>
+<% #自身のブックマークの状況によって☆ボタンに色がついているかの分岐が記載させたファイル %>

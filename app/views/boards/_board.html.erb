@@ -1,0 +1,33 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="board-id-<%= board.id %>">
+    <div class="card">
+      <%= image_tag board.board_image_url, class: "card-img-top", width: "300", height:"200" %>
+      <div class="card-body">
+        <div class="d-flex">
+          <h4 class="card-title">
+            <% #1.link_to:リンク（アンカータグ）を生成. 2.board.title:リンクのテキスト部分。この場合、boardオブジェクトのtitle属性が表示される. 3.board_path(board):リンク先のURLを生成するためのパス。board_pathはboardsリソースのルーティングヘルパーメソッドで、指定されたboardオブジェクトの詳細ページへのURLを生成するナ。%>
+            <%= link_to board.title, board_path(board) %>
+          </h4>
+          <% if current_user.own?(board) %>
+            <div class='ms-auto'>
+              <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+              <% #turbo_method: :deleteは、リンクがクリックされたときにHTTP DELETEリクエストを送信するように指示している。%>
+              <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }  do %>
+                <i class="bi bi-trash-fill"></i>
+              <% end %>
+            </div>
+          <% else %>
+            <%= render 'bookmark_buttons', { board: board } %>
+          <% end %>
+        </div>
+        <ul class="list-inline">
+          <li><i class="bi bi-person"></i><%= board.user.decorate.full_name %></li>
+          <li><i class="bi bi-calendar"></i><%= l board.created_at, format: :short %></li>
+        </ul>
+        <p class="card-text"><%= board.body %></p>
+      </div>
+    </div>
+  </div>
+</div>

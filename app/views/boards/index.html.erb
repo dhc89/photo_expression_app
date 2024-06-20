@@ -1,0 +1,22 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム(掲示板全体から検索かける) -->
+      <%= render 'search', q: @q, url: boards_path %>
+    </div>
+  </div>
+  <!-- 掲示板一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @boards.present? %>
+          <%= render @boards %>
+        <% else %>
+          <div class="mb-3">掲示板がありません</div>
+        <% end %>
+      </div>
+      <%= paginate @boards, theme: 'bootstrap-5' %>
+    </div>
+  </div>
+</div>
