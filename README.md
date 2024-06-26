@@ -107,8 +107,7 @@ https://github.com/dhc89/photo_expression_app/assets/173329711/53643b29-2028-4ec
 * ログイン・ログアウト機能
 * ユーザー登録・編集機能
 * 日本語化（rails-i18n）
-* エラー・フラッシュ表示機能
-* （Bootstrap）
+* エラー・フラッシュ表示機能 
 * ページネーション（kaminari）
 * フォーマッター（Rubocop）
 * デコレーターの導入(Draper)
