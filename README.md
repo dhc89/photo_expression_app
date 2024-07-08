@@ -1,5 +1,5 @@
 # photo_expression
-<img width="1440" alt="TOP画像" src="https://github.com/dhc89/photo_expression_app/assets/173329711/3a97069c-7a7f-4ab2-b762-014209a81103">
+<img width="1440" alt="スクリーンショット 0006-07-08 14 38 03" src="https://github.com/dhc89/photo_expression_app/assets/173329711/8c7fb95d-1336-447a-96a7-f151151cd750">
 
 # 概要
 「photo expression」というアプリケーションで、撮った写真を表情ごとに登録できます。
